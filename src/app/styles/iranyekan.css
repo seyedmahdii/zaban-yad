@@ -1,0 +1,44 @@
+@font-face {
+  font-family: IranYekan;
+  font-weight: 100;
+  src: url("../fonts/IRANSansWeb\(FaNum\).ttf");
+  src: local("IranYekan");
+
+  font-display: swap;
+}
+@font-face {
+  font-family: IranYekan;
+  font-weight: 300;
+  font-style: normal;
+  src: local("IranYekan"),
+    url("../fonts/IRANSansWeb\(FaNum\)_Light.ttf") format("eot");
+
+  font-display: swap;
+}
+@font-face {
+  font-family: IranYekan;
+  font-style: normal;
+  font-weight: normal;
+  src: local("IranYekan"),
+    url("../fonts/IRANSansWeb\(FaNum\).ttf") format("eot");
+
+  font-display: swap;
+}
+@font-face {
+  font-family: IranYekan;
+  font-style: normal;
+  font-weight: bold;
+  src: local("IRANYekan"),
+    url("../fonts/IRANSansWeb\(FaNum\)_Bold.ttf") format("eot");
+
+  font-display: swap;
+}
+@font-face {
+  font-family: IranYekan;
+  font-style: normal;
+  font-weight: 800;
+  src: local("IranYekan"),
+    url("../fonts/IRANSansWeb\(FaNum\)_Black.ttf") format("eot");
+
+  font-display: swap;
+}

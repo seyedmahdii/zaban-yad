@@ -1,0 +1,39 @@
+.nav__modal-wrapper p {
+  color: #212529;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.nav__modal-side {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.nav__modal-support {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.65rem;
+  border-radius: 0.9rem;
+  color: black;
+  margin: 0.2rem;
+  height: 100%;
+}
+.nav__modal-icon {
+  height: 35px;
+  width: 35px;
+}
+.nav__modal-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 1rem;
+}
+.nav__modal-text b {
+  font-size: 1.1rem;
+}
+.nav__modal-text span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #515050;
+}

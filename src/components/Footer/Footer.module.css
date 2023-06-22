@@ -1,0 +1,143 @@
+#footer-logo {
+  width: unset;
+}
+.footer {
+  background-color: black;
+  color: white;
+  padding: 2.5rem 0;
+}
+.footer__logo {
+ width: unset;
+}
+.footer__item {
+  margin: 0.6rem 0.4rem;
+  padding: 0.4rem;
+}
+
+.footer__desc {
+  text-align: justify;
+  color: #dce1e5;
+  margin-top: 1.3rem;
+  line-height: 1.6rem;
+  font-size: 1rem;
+}
+.footer__dots--hide {
+  display: none;
+}
+.footer__more-desc {
+  display: none;
+}
+.footer__more-desc--show {
+  display: inline;
+}
+.footer__read-more-btn {
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: bold;
+}
+.footer__read-more-btn:hover {
+  transform: scale(1.1);
+}
+.footer__social-media {
+  margin-top: 1rem;
+}
+.footer__social-media p {
+  color: #fcfcfc;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.footer__social-media ul {
+  display: flex;
+  align-items: center;
+}
+.footer__social-media li {
+  margin: 0.5rem 0.5rem;
+}
+.footer__social-media img {
+  width: 20px;
+  height: 20px;
+  transition: var(--transition);
+}
+.footer__social-media img:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+.footer__item-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer__list {
+  display: flex;
+  flex-direction: column;
+}
+.footer__link {
+  display: block;
+  color: #dce1e5;
+  font-size: 0.93rem;
+  transition: var(--transition);
+}
+.footer__link:hover {
+  color: #04967b;
+  transform: translateX(-5px);
+}
+.footer__reserve {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 0.4rem;
+}
+.footer__reserve a {
+  padding: 0.4rem 6.5rem;
+}
+.footer__call {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1.5rem 0;
+  margin-top: 2rem;
+}
+.footer__call span {
+  color: #ccc;
+  font-size: 1rem;
+}
+.footer__call a {
+  color: #ccc;
+  font-size: 1rem;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+.footer__image {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.footer__image-btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  margin: 1rem;
+  padding: 0.3rem 0.1rem;
+  cursor: pointer;
+  max-width: 100px;
+}
+.subfooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  color: #ccc;
+  font-size: 1.1rem;
+}
+.subfooter a {
+  color: white;
+}
+.subfooter a:hover {
+  transform: translateX(0);
+}

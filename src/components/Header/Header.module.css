@@ -1,0 +1,179 @@
+.header {
+  background-color: #f8f9fa;
+  box-shadow: var(--light-shadow);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+.header--fixed {
+  position: fixed;
+  background-color: rgba(244, 246, 250, 0.8) !important;
+}
+.nav__small-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__collapse {
+  display: none;
+  flex-direction: column;
+  /* padding:0 0.5rem ; */
+}
+.nav__collapse--show {
+  display: flex;
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+.nav__item {
+  position: relative;
+}
+.nav__link {
+  padding: 0 0.8rem;
+  color: #515050;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: block;
+}
+.nav__dropdown {
+  background-color: white;
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  /*display: none;*/
+}
+.nav__dropdown--show {
+  display: block;
+}
+.nav__dropdown-item {
+  display: flex;
+  align-items: center;
+  color: black;
+  margin: 0.3rem;
+  font-size: 0.9rem;
+}
+.nav__dropdown-item-flag {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 27%);
+  margin-left: 0.4rem;
+}
+.dropdown-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.arrowIcon {
+  vertical-align: middle;
+}
+
+.nav__link-btn {
+  padding: 0.5rem 0.5rem;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.nav__link-btn::before {
+  border-radius: 10px;
+}
+.nav__link-btn--bordered {
+  border: 1px solid #989a9c;
+  color: #515050;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  transition: var(--transition);
+}
+.nav__link-btn--bordered:hover {
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 27%);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.userIcon {
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.phoneIcon {
+  vertical-align: middle;
+}
+.navLinkphone {
+  display: inline;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  margin-bottom: 10px;
+}
+
+.navBtnLogin {
+  margin-bottom: 10px;
+}
+.nav__toggle {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+.toggle-icon {
+  display: inline-block;
+  width: 1.75em;
+  height: 1em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+@media all and (min-width: 992px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .medium-screens {
+    display: none;
+  }
+  .nav__collapse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    padding-top: 0.6rem;
+  }
+  .nav__list {
+    flex-direction: row;
+    align-items: center;
+  }
+  .nav__dropdown {
+    position: absolute;
+    top: 125%;
+    right: 0;
+    width: 21rem;
+  }
+  .nav__link-btn {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 0.13rem;
+  }
+  .nav__link-btns {
+    display: flex;
+  }
+  .navLinkphone {
+    width: 20px;
+  }
+}
