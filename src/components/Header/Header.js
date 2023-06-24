@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
-import FixedButton from "./FixedButton/FixedButton";
 import { FaUserAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { VscThreeBars } from "react-icons/vsc";
@@ -205,7 +204,6 @@ function Header() {
           </nav>
         )}
       </div>
-      <FixedButton />
     </header>
   );
 }
