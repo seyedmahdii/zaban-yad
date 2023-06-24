@@ -1,10 +1,7 @@
-"use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
 import FixedButton from "./FixedButton/FixedButton";
 import { FaUserAlt } from "react-icons/fa";
-import { CgPhone } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
 import { VscThreeBars } from "react-icons/vsc";
 import { useRouter, usePathname } from "next/navigation";
@@ -12,17 +9,14 @@ import { Collapse } from "react-collapse";
 import { getCookie as cookie } from "cookies-next";
 
 function Header() {
-  const [showModal, setShowModal] = useState(false);
   const [LinkGoProfile, setLinkGoProfile] = useState("/");
   const [dropdownState, setDropdownState] = useState(false);
   const header = useRef(null);
   const toggleBtn = useRef(null);
   const navCollapse = useRef(null);
-  const dropdown = useRef(null);
   const [languages, setLanguages] = useState([]);
   const router = useRouter();
   const pathname = usePathname();
-  console.log("pathname", pathname);
 
   useEffect(() => {
     // Fixed Header
@@ -35,12 +29,8 @@ function Header() {
       }
     });
     let linkISGO = handelGoLogin();
-    console.log(linkISGO);
     setLinkGoProfile(linkISGO);
     fetchLanguages();
-
-    // getCookies();
-    console.log(cookie("userinfo"));
   }, []);
 
   const fetchLanguages = async () => {
@@ -57,19 +47,11 @@ function Header() {
     }
   };
 
-  // const getCookies = () => {
-  //   console.log(getCookie("userinfo"));
-  // };
-
   // Nav Toggle
   const handleNavToggle = () => {
     navCollapse.current.classList?.toggle(styles["nav__collapse--show"]);
   };
 
-  // Nav Dropdown menu -- Languages
-  const handleDropdown = () => {
-    dropdown.current.classList?.toggle(styles["nav__dropdown--show"]);
-  };
   const handelGoLogin = () => {
     if (cookie("student_token")) {
       return "/student/dashboard";
@@ -89,9 +71,9 @@ function Header() {
               {/* Logo is visible both on lg and sm screens */}
               <a href="/">
                 <img
-                  src="/images/tikkaLogo.png"
+                  src={"/logo.png"}
                   alt="یادگیری آنلاین زبان در خانه با پلتفرم برگزاری کلاس آنلاین  با هزینه کلاس زبان مناسب با تیکا"
-                  className={styles.nav__img}
+                  className={`${styles.nav__img} h-12`}
                   width={132}
                   height={52}
                 />
@@ -197,23 +179,11 @@ function Header() {
                       href={LinkGoProfile}
                       className={`${styles["nav__link-btn"]} ${styles["nav__link-btn--bordered"]}`}
                     >
-                      <div>
-                        <FaUserAlt className={styles["userIcon"]} />
-                        {/* {userInfo.name ? userInfo.name : userInfo.name_family} */}
-                        mahdi
-                      </div>
+                      <FaUserAlt className={styles["userIcon"]} />
+                      {/* {userInfo.name ? userInfo.name : userInfo.name_family} */}
+                      mahdi
                     </a>
                   )}
-                </div>
-                <div>
-                  <button
-                    className={`${styles["nav__link-btn"]} ${styles["nav__link-btn--bordered"]} ${styles["nav__link-modal"]} ${styles["navLinkphone"]}`}
-                    onClick={() => setShowModal(!showModal)}
-                  >
-                    <div>
-                      <CgPhone className={styles["phoneIcon"]} />
-                    </div>
-                  </button>
                 </div>
               </div>
             </div>
@@ -224,8 +194,8 @@ function Header() {
               {/* Logo is visible both on lg and sm screens */}
               <a href="/">
                 <img
-                  src="https://tikkaa.ir/img/index/header/tikkaLogo.png"
-                  alt="یادگیری آنلاین زبان در خانه با پلتفرم برگزاری کلاس آنلاین  با هزینه کلاس زبان مناسب با تیکا"
+                  src="/logo.png"
+                  alt="logo"
                   className={styles.nav__img}
                   width={132}
                   height={52}

@@ -18,6 +18,12 @@
   --bg-color: #eee;
   --transition: all 0.2s linear;
 }
+
+html,
+body {
+  font-family: var(--ff-primary) !important;
+}
+
 .iranSans {
   font-family: "IranianSans" !important;
 }
