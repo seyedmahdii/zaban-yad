@@ -1,0 +1,333 @@
+.login {
+  background-color: var(--bg-color);
+  padding: 2.5rem 0;
+}
+.login__title {
+  margin-top: 1rem;
+  font-size: 2.4rem;
+  color: #212529;
+  text-align: center;
+}
+.login__subtitle {
+  color: #515050;
+  line-height: 3.1rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-align: center;
+}
+.login__arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+.login__arrow-down {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  border: 2px solid #01af8f;
+}
+
+.login__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login__input {
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  height: 40px;
+  min-width: 170px;
+  border-radius: 0.3rem;
+  margin: 0 atuo;
+  margin-top: 1rem;
+  padding: 0 0.3rem;
+}
+.login__input--noborder {
+  border: none;
+}
+.login__input img {
+  width: 17px;
+  height: 30px;
+}
+.phone__input {
+  font: unset;
+  border: none;
+  outline: none;
+  direction: ltr;
+  margin-left: 0.3rem;
+  height: 100%;
+  font-size: 1.3rem;
+  color: #292929;
+}
+.code__desc {
+  color: #515050;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.code__input {
+  font: unset;
+  border: none;
+  outline: none;
+  direction: ltr;
+  width: 7ch;
+  background: repeating-linear-gradient(
+      90deg,
+      dimgray 0,
+      dimgray 1ch,
+      transparent 0,
+      transparent 1.5ch
+    )
+    0 100%/100% 2px no-repeat;
+  color: dimgrey;
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.login__btn {
+  margin-top: 0.7rem;
+  color: white;
+  border-radius: 0.4rem;
+  transition: var(--transition);
+  padding: 0.3rem 2rem;
+  cursor: pointer;
+  opacity: 1;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+.login__btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.login__btn--phone {
+  background-image: linear-gradient(103deg, #ff237a 14%, #712be5 92%);
+}
+.login__btn--gmail {
+  background-color: #ee422e;
+  padding: 0.5rem 1.5rem;
+  margin: 0 0 0.7rem 0 0;
+}
+.login__btn--gmail img {
+  width: 20px;
+  height: 21px;
+  margin-left: 0.4rem;
+}
+.login__btn--gmail span {
+  font-size: 0.9rem;
+}
+.login__or {
+  margin: 0.5rem 0.7rem;
+}
+.login__or-dash {
+  letter-spacing: -2px;
+}
+
+.work {
+  background-color: white;
+  padding: 2rem 0;
+}
+.work__item-wrapper {
+  margin-bottom: 0.7rem;
+}
+.work__item {
+  background-color: var(--bg-color);
+  max-width: 25rem;
+  padding: 3.1rem;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #212529;
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 16%);
+}
+.work__item:hover {
+  background-image: linear-gradient(107deg, #0fecc3 4%, #01af8f 97%);
+  color: white;
+}
+.work__item:hover .work__item-icon {
+  filter: contrast(1000%);
+}
+.modal__input {
+  border: 1px solid #babec1;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  height: 40px;
+  border-radius: 0.3rem;
+  margin: 0 atuo;
+  margin-top: 1rem;
+  padding: 0 0.3rem;
+}
+.modal__input--noborder {
+  border: none;
+}
+.modal__input img {
+  width: 17px;
+  height: 30px;
+}
+
+.work__item-icon {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  /* background-image: url("../../public/icons/workWithTikkaSprite.png"); */
+  background-repeat: no-repeat;
+  transition: var(--transition);
+}
+.work__item-icon-2 {
+  background-position: -75px 0;
+}
+.work__item-icon-3 {
+  background-position: 0 -75px;
+}
+.work__item-icon-4 {
+  background-position: -75px -75px;
+}
+.work__item-title {
+  margin-top: 2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  display: block;
+  transition: var(--transition);
+}
+
+.money {
+  background-image: -webkit-linear-gradient(-270deg, #9065d8 0, #712be5 100%);
+  padding: 4.7rem 0;
+}
+.money h2 {
+  color: white;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+.money__income-wrapper {
+  background-color: white;
+  border-radius: 2rem;
+  padding: 3rem;
+  border: 1px solid #ccc;
+}
+.money__income-calculate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.money__income-item {
+  display: flex;
+  flex-direction: column;
+}
+.money__income-item label {
+  color: #707070;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+.money__income-input {
+  font: unset;
+  width: 180px;
+  height: 50px;
+  background-color: rgba(0, 98, 204, 0.1);
+  border: 1px solid #0062cc;
+  border-radius: 10px;
+  padding: 0 10px;
+  outline: none;
+  color: #707070;
+  font-size: 1.9rem;
+  margin-bottom: 0.7rem;
+}
+.money__income-input::placeholder {
+  font-size: 1rem;
+}
+.money__income-time {
+  font-size: 1rem;
+}
+.money__income-btn {
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  border: transparent;
+  background-image: -webkit-linear-gradient(-270deg, #9065d8 0, #712be5 100%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+.money__income-btn img {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.money__output {
+  margin-top: 2.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.money__output p {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #212529;
+}
+.money__output span {
+  font-size: 1rem;
+  color: #01af8f;
+}
+.money__output-value {
+  font-size: 2rem !important;
+  color: #712be5 !important;
+  font-weight: 700 !important;
+}
+.money__output-currency {
+  font-size: 1.3rem !important;
+  color: #707070 !important;
+  margin-right: 10px;
+}
+.money__wraning {
+  margin-top: 2.9rem;
+  text-align: center;
+  color: #712be5;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.comments {
+  background-color: white;
+  padding: 2rem 0;
+}
+.comments h2 {
+  color: #212529;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+@media all and (max-width: 768px) {
+  .work__item-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .work__item {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .money__income-calculate {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .money__income-item {
+    margin-left: 1rem;
+  }
+  .money__income-input {
+    margin-bottom: 0;
+  }
+}

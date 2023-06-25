@@ -18,7 +18,7 @@ import {
 function Login() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [policyAgree, setPolicyAgree] = useState(true);
   const [status, setStatus] = useState("login");
@@ -30,78 +30,57 @@ function Login() {
     type: "",
   });
 
-  const getCode = async (mobile) => {
-    let body = { mobile: mobile };
+  const register = async () => {
     try {
-      const res = await fetch(
-        "https://api.barmansms.ir/api/user/register/mobile",
-        {
-          method: "POST",
-          body: JSON.stringify(body),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-    } catch (error) {
-      console.log("Error getting the code ", error);
-    }
-  };
-
-  const checkCode = async (mobile, code) => {
-    let body = { mobile, code };
-    try {
-      const res = await fetch(
-        "https://api.barmansms.ir/api/user/register/mobile/check",
-        {
-          method: "POST",
-          body: JSON.stringify(body),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
+      const res = await fetch("http://127.0.0.1:8000/custom-users/", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          username,
+          password,
+          role: "learner",
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      console.log("res", res);
       const { data } = await res.json();
-      if (data?.length !== 0) {
-        await removeCookies("tika_user");
-        await removeCookies("tika_user");
-        await removeCookies("tutor_step");
-        await removeCookies("tutor_step");
-        await removeCookies("tutor_token");
-        await removeCookies("tutor_token");
-
-        setCookie("student_token", data?.token, 730);
-        router.replace("/student/dashboard");
+      if (true) {
+        console.log("true");
       } else {
         let message = "کد وارد شده اشتباه است";
         showAlert(true, "danger", message);
       }
     } catch (error) {
-      console.log("Error checking the code ", error);
+      console.log(" ", error);
     }
   };
 
-  const handlePhone = () => {
-    if (mobile?.length === 11) {
-      getCode(mobile);
-      let message = "رمز یکبار مصرف از طریق پیامک برای شما ارسال شد.";
-      showAlert(true, "success", message);
-    } else if (mobile.trim()?.length === 0) {
-      let message = "شماره تماس باید وارد شود";
-      showAlert(true, "danger", message);
-    } else {
-      let message = "فرمت شماره درست نیست";
-      showAlert(true, "danger", message);
-    }
-  };
-
-  const handleCode = () => {
-    // Entering the code
-    if (code?.length === 5) {
-      checkCode(mobile, code);
-    } else {
-      let message = "طول کد تایید 5 کاراکتر است";
-      showAlert(true, "danger", message);
+  const login = async () => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/custom-users/", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          username,
+          password,
+          role: "learner",
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      console.log("res", res);
+      const { data } = await res.json();
+      if (true) {
+        console.log("true");
+      } else {
+        let message = "کد وارد شده اشتباه است";
+        showAlert(true, "danger", message);
+      }
+    } catch (error) {
+      console.log(" ", error);
     }
   };
 
@@ -111,15 +90,7 @@ function Login() {
   // initializing the geolocation
 
   const studentLogin = () => {
-    if (
-      false &&
-      // getCookie("student_token")
-      false
-    ) {
-      //   router.push("/student/dashboard");
-    } else {
-      setShowModal(true);
-    }
+    setShowModal(true);
   };
 
   return (
@@ -204,7 +175,6 @@ function Login() {
                 <input
                   type="text"
                   placeholder="نام کامل"
-                  maxLength={11}
                   className={styles.phone__input}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -214,13 +184,12 @@ function Login() {
             )}
             <div className={styles.modal__input}>
               <input
-                type="email"
+                type="text"
                 autoFocus
-                placeholder="ایمیل"
-                maxLength={11}
+                placeholder="نام کاربری"
                 className={styles.phone__input}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <Icon path={mdiEmail} size={1} />
             </div>
@@ -228,7 +197,6 @@ function Login() {
               <input
                 type="password"
                 placeholder="کلمه عبور"
-                maxLength={11}
                 className={styles.phone__input}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -259,14 +227,13 @@ function Login() {
               type="button"
               disabled={!policyAgree}
               className={`gradient ${styles.modal__btn}`}
-              onClick={handlePhone}
+              onClick={status === "login" ? login : register}
             >
               {status === "login" ? "وارد شوید" : "ثبت نام کنید"}
             </button>
 
             <button
               type="button"
-              disabled={!policyAgree}
               style={{ marginTop: 16, color: "gray", cursor: "pointer" }}
               onClick={() =>
                 setStatus(status === "login" ? "register" : "login")
@@ -282,7 +249,7 @@ function Login() {
           <Alert
             {...alertData}
             removeAlert={showAlert}
-            envoker={handlePhone || handleCode}
+            envoker={login || register}
           />
         </div>
       </Modal>

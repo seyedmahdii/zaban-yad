@@ -180,7 +180,7 @@ function Header() {
                     >
                       <FaUserAlt className={styles["userIcon"]} />
                       {/* {userInfo.name ? userInfo.name : userInfo.name_family} */}
-                      mahdi
+                      login
                     </a>
                   )}
                 </div>
