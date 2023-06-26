@@ -4,7 +4,7 @@ import Alert from "@/components/Alert/Alert";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Icon from "@mdi/react";
-import { mdiArrowDown, mdiEmail, mdiLock, mdiAccountTie } from "@mdi/js";
+import { mdiEmail, mdiLock, mdiAccountTie } from "@mdi/js";
 
 function TeacherLogin() {
   const [name, setName] = useState("");
@@ -19,87 +19,63 @@ function TeacherLogin() {
   });
   const router = useRouter();
 
-  const getCode = async (mobile) => {
-    let body = { mobile: mobile };
-    try {
-      const res = await fetch(
-        "https://api.barmansms.ir/api/teacher/register/mobile",
-        {
-          method: "POST",
-          body: JSON.stringify(body),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-    } catch (error) {
-      console.log("Error getting the code ", error);
-    }
-  };
-
-  const checkCode = async (mobile, code) => {
-    setLoading(true);
-    let body = { mobile, code };
-    try {
-      const res = await fetch(
-        "https://api.barmansms.ir/api/teacher/register/mobile/check",
-        {
-          method: "POST",
-          body: JSON.stringify(body),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const { data } = await res.json();
-      setLoading(false);
-      if (data?.length !== 0) {
-        let step = data?.step;
-        setCookie("tutor_token", data?.token, 730);
-        setCookie("tutor_step", step, 730);
-        let message = "لاگین با موفقیت انجام شد";
-        showAlert(true, "success", message);
-        if (Number(step) === 8) {
-          router.replace(`/tutor/dashboard`);
-        } else {
-          router.replace(`/tutor/step${Number(step) + 1}`);
-        }
-      } else {
-        let message = "کد ارسالی اشتباه است";
-        showAlert(true, "danger", message);
-      }
-    } catch (error) {
-      console.log("Error checking the code ", error);
-    }
-  };
-
-  const handlePhone = () => {
-    if (mobile?.length === 11) {
-      getCode(mobile);
-      setStep(2);
-      let message = "رمز یکبار مصرف از طریق پیامک برای شما ارسال شد.";
-      showAlert(true, "success", message);
-    } else if (mobile.trim()?.length === 0) {
-      let message = "شماره تماس باید وارد شود";
-      showAlert(true, "danger", message);
-    } else {
-      let message = "فرمت شماره درست نیست";
-      showAlert(true, "danger", message);
-    }
-  };
-
-  const handleCode = () => {
-    // Entering the code
-    if (code?.length === 5) {
-      checkCode(mobile, code);
-    } else {
-      let message = "طول کد تایید 5 کاراکتر است";
-      showAlert(true, "danger", message);
-    }
-  };
-
   const showAlert = (show, type, message) => {
     setAlertData({ show, type, message });
+  };
+
+  const register = async () => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/custom-users/", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          username,
+          password,
+          role: "teacher",
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      if (res.ok) {
+        showAlert(true, "success", "ثبت نام باموفقیت انجام شد");
+      } else {
+        showAlert(true, "danger", "مشکلی پیش آمده");
+      }
+    } catch (error) {
+      console.log("error registering", error);
+    }
+  };
+
+  const login = async () => {
+    try {
+      const res = await fetch(
+        "http://127.0.0.1:8000/custom-users/check-password/",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      console.log("res", res);
+      const { data } = await res.json();
+      if (res.status === 404) {
+        showAlert(true, "danger", "نام کاربری پیدا نشد.");
+      } else if (res.status === 400) {
+        showAlert(true, "danger", "کلمه عبور اشتباه می باشد");
+      } else if (res.status === 200) {
+        showAlert(true, "success", "به زبان یاد خوش آمدید استاد گرامی");
+      } else {
+        showAlert(true, "danger", "مشکلی پیش آمده");
+      }
+    } catch (error) {
+      console.log(" ", error);
+    }
   };
 
   return (
@@ -108,8 +84,8 @@ function TeacherLogin() {
         <div className="container">
           <h1 className={styles.login__title}>ورود / ثبت نام استاد زبان</h1>
           <h3 className={styles.login__subtitle}>
-            جهت ثبت نام و یا ورود بعنوان مدرس در سامانه آموزش آنلاین زبان ،شماره
-            تلفن همراه خود را وارد کرده تا کد تایید برای شما ارسال شود.
+            جهت ثبت نام و یا ورود بعنوان مدرس در سامانه آموزش آنلاین زبان
+            ،اطلاعات زیر را تکمیل کنید.
           </h3>
           <div className={styles["login__arrow-wrapper"]}>
             {/* <Icon path={mdiArrowDown} size={2} /> */}
@@ -151,9 +127,9 @@ function TeacherLogin() {
             <button
               type="button"
               className={`${styles["login__btn"]} ${styles["login__btn--phone"]}`}
-              onClick={handlePhone}
+              onClick={status === "login" ? login : register}
             >
-              ورود
+              {status === "login" ? "وارد شوید" : "ثبت نام کنید"}
             </button>
 
             <button
@@ -172,7 +148,7 @@ function TeacherLogin() {
             <Alert
               {...alertData}
               removeAlert={showAlert}
-              envoker={handlePhone || handleCode}
+              envoker={login || register}
             />
           </div>
         </div>

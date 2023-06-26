@@ -44,13 +44,10 @@ function Login() {
           "Content-type": "application/json",
         },
       });
-      console.log("res", res);
-      const { data } = await res.json();
-      if (true) {
-        console.log("true");
+      if (res.ok) {
+        showAlert(true, "success", "ثبت نام باموفقیت انجام شد");
       } else {
-        let message = "کد وارد شده اشتباه است";
-        showAlert(true, "danger", message);
+        showAlert(true, "danger", "مشکلی پیش آمده");
       }
     } catch (error) {
       console.log(" ", error);
@@ -59,25 +56,29 @@ function Login() {
 
   const login = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/custom-users/", {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-          username,
-          password,
-          role: "learner",
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "http://127.0.0.1:8000/custom-users/check-password/",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
       console.log("res", res);
       const { data } = await res.json();
-      if (true) {
-        console.log("true");
+      if (res.status === 404) {
+        showAlert(true, "danger", "نام کاربری پیدا نشد.");
+      } else if (res.status === 400) {
+        showAlert(true, "danger", "کلمه عبور اشتباه می باشد");
+      } else if (res.status === 200) {
+        showAlert(true, "success", "به زبان یاد خوش آمدید زبان‌آموز عزیز");
       } else {
-        let message = "کد وارد شده اشتباه است";
-        showAlert(true, "danger", message);
+        showAlert(true, "danger", "مشکلی پیش آمده");
       }
     } catch (error) {
       console.log(" ", error);
@@ -87,7 +88,6 @@ function Login() {
   const showAlert = (show, type, message) => {
     setAlertData({ show, type, message });
   };
-  // initializing the geolocation
 
   const studentLogin = () => {
     setShowModal(true);
