@@ -1,0 +1,146 @@
+.filter__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter__search-input {
+  all: unset;
+  width: 100%;
+}
+.filter__search-img {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  margin-right: 0.2rem;
+}
+.filter__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.filter__title {
+  color: #585858 !important;
+  font-size: 0.9rem !important;
+  font-family: var(--ff-secondary);
+}
+.mb {
+  margin-bottom: 0.5rem;
+}
+.filter__item span {
+  color: #939393;
+  font-size: 0.7rem;
+}
+.filter__select {
+  text-transform: capitalize;
+}
+.filter__btn-wrapper {
+  display: none;
+  margin: 0.3rem 0;
+}
+.filter__btn {
+  background-color: #793be2;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1rem;
+  color: white;
+  box-shadow: 0 3px 8px 0 rgb(39 39 39 / 16%);
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.filter__sort-btn {
+  border: 1px solid #55b090;
+  color: #55b090;
+  border-radius: 0.4rem;
+  padding: 0 0.3rem;
+  font-size: 0.8rem;
+  transition: var(--transition);
+  cursor: pointer;
+  margin-left: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+.filter__sort-btn--sm {
+  font-size: 0.85rem;
+  padding: 0 0.15rem;
+}
+.filter__sort-btn:hover,
+.filter__sort-btn--active {
+  background-color: #55b090;
+  color: white;
+}
+.filter__mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+}
+.filter__mobile-teacherscount {
+  font-size: 1.2rem;
+  color: #212529;
+  font-weight: 700;
+}
+.filter__mobile-filter {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.filter__mobile-filter img {
+  width: 1.5rem;
+  height: 1.2rem;
+  margin-left: 0.3rem;
+}
+.filter__mobile-filter span {
+  color: #9b9b9b;
+  font-size: 1rem;
+}
+.filter__mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.filter__mobile-header span {
+  font-family: var(--ff-secondary);
+  font-size: 1.2rem;
+  color: #212529;
+}
+.filter__mobile-header a {
+  font-size: 1rem;
+  color: #55b090;
+}
+.filter__mobile-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0rem;
+  border-bottom: 1px solid #707070;
+  color: #707070;
+}
+.filter__mobile-btn {
+  background-color: #793be2;
+  width: 100%;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.2rem 0;
+  cursor: pointer;
+}
+
+@media all and (min-width: 768px) {
+  .filter-container {
+    padding: 0 1rem;
+  }
+  .filter-container--fixed {
+    position: fixed;
+    width: 100%;
+    top: 5rem;
+    max-width: 18rem;
+  }
+  .filter__btn-wrapper {
+    display: flex;
+  }
+  .filter__mobile {
+    display: none;
+  }
+}

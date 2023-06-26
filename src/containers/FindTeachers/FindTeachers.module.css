@@ -1,0 +1,17 @@
+.main-content {
+  margin-top: 0.7rem;
+}
+.box {
+  background-color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.65rem;
+  margin-bottom: 0.25rem;
+  box-shadow: 0 3px 8px 0 rgb(39 39 39 / 16%);
+}
+
+.d-flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}

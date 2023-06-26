@@ -1,0 +1,13 @@
+.teacher__not-found {
+  text-align: center;
+}
+.teacher__not-found img {
+  max-width: 31.25rem;
+}
+.teacher__not-found span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #212529;
+  display: block;
+  margin-top: 0.5rem;
+}

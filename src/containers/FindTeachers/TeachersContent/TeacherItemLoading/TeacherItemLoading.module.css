@@ -1,0 +1,55 @@
+.teacher__loading {
+    background-color: white;
+    border-radius: 0.65rem;
+    padding: 0.6rem;
+    box-shadow: 0 3px 8px 0 rgb(39 39 39 / 16%);
+    display: flex;
+    margin-bottom: 1rem;
+}
+.teacher__loading-right {
+    margin-left: 0.65rem;
+    min-width: 8rem;
+    min-height: 8rem;
+    max-width: 8rem;
+    max-height: 8rem;
+    border-radius: 0.65rem;
+}
+.teacher__loading-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.teacher__loading-row {
+    flex: 0.3;
+    border-radius: 0.65rem;
+}
+.teacher__loading-row--rest {
+    border-radius: 0.65rem;
+    flex: 0.7;
+    margin-top: 0.5rem;
+}
+.animated-background {
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: darkgray;
+    background: linear-gradient(
+        to right,
+        #eeeeee 10%,
+        #dddddd 18%,
+        #eeeeee 33%
+    );
+    background-size: 800px 104px;
+    height: 100%;
+    position: relative;
+}
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: 0px 0;
+    }
+    100% {
+        background-position: 100em 0;
+    }
+}
